@@ -46,7 +46,13 @@ app.get("/api/validate", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  const indexPath = path.join(__dirname, "index.html");
+  const publicPath = path.join(__dirname, "public", "index.html");
+  const fs = require("fs");
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  res.sendFile(publicPath);
 });
 
 // Only listen when run directly (local); on Vercel we export the app
