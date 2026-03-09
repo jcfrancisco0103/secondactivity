@@ -49,6 +49,11 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`Blockchain simulator running at http://localhost:${PORT}`);
-});
+// Only listen when run directly (local); on Vercel we export the app
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Blockchain simulator running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

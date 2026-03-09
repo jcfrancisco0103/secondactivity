@@ -9,16 +9,22 @@ npm install
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The page shows the chain, lets you add blocks (text or JSON), and validates the chain.
+Open [http://localhost:3000](http://localhost:3000). For port 3090: `npm run start:3090`.
 
-## Deploy
+## Deploy on Vercel
 
-- **Render**: New → Web Service → connect repo, build: `npm install`, start: `npm start`. Set root directory to this folder if needed.
-- **Railway**: New project → Deploy from GitHub → same build/start. It uses `PORT` automatically.
-- **Vercel**: Use a Node server; point to `server.js` or add a `vercel.json` with a serverless config (or keep Render/Railway for a single long-running server).
-- **Fly.io / Heroku**: Same idea: `npm install` and `npm start`; they provide `PORT`.
+1. **From Git**: Push your code to GitHub, then go to [vercel.com/new](https://vercel.com/new), import the repo, and deploy (no extra config needed).
+2. **From CLI**: Install Vercel CLI (`npm i -g vercel`), run `vercel` in the project folder, and follow the prompts.
 
-The app reads `process.env.PORT`, so any host that sets `PORT` will work.
+Your site will be at `https://your-project.vercel.app`. The homepage is the simulator UI; `/api/chain` and `POST /api/block` are the API.
+
+**Note:** On Vercel the blockchain lives in the serverless function’s memory and can reset when the function goes cold; for a demo activity this is usually fine.
+
+## Deploy elsewhere
+
+- **Render**: New → Web Service → connect repo, build: `npm install`, start: `npm start`.
+- **Railway**: New project → Deploy from GitHub → same build/start. Uses `PORT` automatically.
+- **Fly.io / Heroku**: `npm install` and `npm start`; they set `PORT` for you.
 
 ## What it does
 
