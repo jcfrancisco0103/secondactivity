@@ -1,0 +1,17 @@
+{
+  "name": "blockchain-simulator",
+  "version": "1.0.0",
+  "description": "Simple blockchain simulator - web app for BootCamp activity",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "start:3090": "PORT=3090 node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
